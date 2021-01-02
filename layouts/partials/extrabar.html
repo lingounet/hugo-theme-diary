@@ -24,24 +24,25 @@
             </i>
         </a>
         {{ end }}
-        {{ if .Paginator }}
-        {{ if gt .Paginator.TotalPages 1 }}
+        {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+        {{ if $paginator }}
+        {{ if gt $paginator.TotalPages 1 }}
             <div class="pagination-indicator">
                 <span style="text-align: center">
-                    {{.Paginator.PageNumber}}<br><div style="display: inline-block; transform: rotate(-28deg)">-</div><br>{{.Paginator.TotalPages}}
+                    {{$paginator.PageNumber}}<br><div style="display: inline-block; transform: rotate(-28deg)">-</div><br>{{$paginator.TotalPages}}
                 </span>
             </div>
             
-            {{ if .Paginator.HasPrev }}
-            <a class="pagination-action" href="{{.Paginator.Prev.URL}}">
+            {{ if $paginator.HasPrev }}
+            <a class="pagination-action" href="{{$paginator.Prev.URL}}">
                 <i class="material-icons pagination-action-icon">
                     chevron_left
                 </i>
             </a>
             {{ end }}
 
-            {{ if .Paginator.HasNext }}
-            <a class="pagination-action" href="{{.Paginator.Next.URL}}">
+            {{ if $paginator.HasNext }}
+            <a class="pagination-action" href="{{$paginator.Next.URL}}">
                 <i class="material-icons pagination-action-icon">
                     chevron_right
                 </i>

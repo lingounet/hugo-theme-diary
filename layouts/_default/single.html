@@ -74,8 +74,8 @@
                     {{ end }}
                 </div>
             </div>
-            
-            
+
+{{ if and .IsPage (ne .Params.comment false) -}}
             <nav class="post-pagination">
 
                 {{if .Next}}
@@ -107,6 +107,7 @@
                 {{- partial "comment.html" . -}}
                 {{ end }}
             </div>
+{{- end }}
         </div>
     </div>
 </div>

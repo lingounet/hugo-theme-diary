@@ -27,6 +27,7 @@ enableOpenGraph = true
 enableTwitterCards = true
 title = "My Blog" # will set 'og:site_name'
 description = "My HomePage Description"  # will set 'og:description'
+mainSections = ["posts"]
 
 [params.gitalk]
   owner = "user"
